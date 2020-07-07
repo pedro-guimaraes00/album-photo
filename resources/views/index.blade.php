@@ -36,7 +36,7 @@
     <header>
       <div class="navbar navbar-dark bg-dark shadow-sm">
           <a href="#" class="navbar-brand d-flex align-items-center">
-            <strong>Seu álbum de fotos</strong>
+            <strong>PHOTOS©</strong>
           </a>
       </div>
     </header>
@@ -104,7 +104,7 @@
         <p class="float-right">
           <a href="#">Voltar para cima</a>
         </p>
-        <p>©2018 Sua empresa.com</p>
+        <p>©2020 photos.com</p>
       </div>
     </footer>
 

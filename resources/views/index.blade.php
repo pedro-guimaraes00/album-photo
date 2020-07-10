@@ -36,7 +36,7 @@
     <header>
       <div class="navbar navbar-dark bg-dark shadow-sm">
           <a href="#" class="navbar-brand d-flex align-items-center">
-            <strong>Seu álbum de fotos</strong>
+            <strong>PHOTOS©</strong>
           </a>
       </div>
     </header>
@@ -71,27 +71,29 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-            
-                <div class="col-md-4">
-                  <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top figure-img img-fluid rounded" src="">
-                    <div class="card-body">
-                      <p class="card-text">email@dominio.com</p>
-                      <p class="card-text">Mensagem referente a imagem</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <!--button type="button" class="btn btn-sm btn-outline-secondary">Download</button-->
-                          <a type="button" class="btn btn-sm btn-outline-secondary" href="#">Download</a>
-                          <form>
-                            @csrf
-                            <input type="hidden" name="_method" value="delete">
-                            <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
-                          </form>
-                        </div>
+
+            @foreach ($posts as $post)
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <img class="card-img-top figure-img img-fluid rounded" src="/storage/{{ $post->arquivo }}">
+                  <div class="card-body">
+                    <p class="card-text">{{ $post->email }}</p>
+                    <p class="card-text">{{ $post->mensagem }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <!--button type="button" class="btn btn-sm btn-outline-secondary">Download</button-->
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="/download/{{ $post->id }}">Download</a>
+                        <form action="/{{ $post->id }}" method="POST">
+                          @csrf
+                          <input type="hidden" name="_method" value="delete">
+                          <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            @endforeach
             
           </div>
         </div>
@@ -104,7 +106,7 @@
         <p class="float-right">
           <a href="#">Voltar para cima</a>
         </p>
-        <p>©2018 Sua empresa.com</p>
+        <p>©2020 photos.com</p>
       </div>
     </footer>
 
